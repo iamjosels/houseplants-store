@@ -4,6 +4,7 @@ export const plants = [
     name: "Monstera Deliciosa",
     price: 25,
     category: "Tropical",
+    description: "Iconic split leaves that bring a jungle vibe to any room.",
     image: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=400&h=300&fit=crop",
   },
   {
@@ -11,13 +12,15 @@ export const plants = [
     name: "Snake Plant",
     price: 18,
     category: "Low Light",
-    image: "https://images.unsplash.com/photo-1593482892540-56b4e53e5e1a?w=400&h=300&fit=crop",
+    description: "Nearly indestructible and great at purifying indoor air.",
+    image: "https://images.unsplash.com/photo-1599719840163-1cd5b7c1fabe?w=400&h=300&fit=crop",
   },
   {
     id: "p3",
     name: "Pothos Golden",
     price: 15,
     category: "Low Light",
+    description: "Trailing vines with golden-green heart-shaped leaves.",
     image: "https://images.unsplash.com/photo-1637967886160-fd78dc3ce3f5?w=400&h=300&fit=crop",
   },
   {
@@ -25,6 +28,7 @@ export const plants = [
     name: "Peace Lily",
     price: 22,
     category: "Flowering",
+    description: "Elegant white blooms that thrive in low-light spaces.",
     image: "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5?w=400&h=300&fit=crop",
   },
   {
@@ -32,13 +36,15 @@ export const plants = [
     name: "Fiddle Leaf Fig",
     price: 35,
     category: "Tropical",
-    image: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400&h=300&fit=crop",
+    description: "A statement plant with large, sculptural fiddle-shaped leaves.",
+    image: "https://images.unsplash.com/photo-1518130242561-edb760734bee?w=400&h=300&fit=crop",
   },
   {
     id: "p6",
     name: "ZZ Plant",
     price: 20,
     category: "Low Light",
+    description: "Glossy, dark-green leaves that tolerate neglect with ease.",
     image: "https://images.unsplash.com/photo-1632207691143-643e2a9a9361?w=400&h=300&fit=crop",
   },
   {
@@ -46,13 +52,15 @@ export const plants = [
     name: "Calathea Orbifolia",
     price: 28,
     category: "Tropical",
-    image: "https://images.unsplash.com/photo-1637048993928-2ee48a951097?w=400&h=300&fit=crop",
+    description: "Stunning striped foliage that moves with the light.",
+    image: "https://images.unsplash.com/photo-1606146350176-804f4c84fb30?w=400&h=300&fit=crop",
   },
   {
     id: "p8",
     name: "Orchid Phalaenopsis",
     price: 30,
     category: "Flowering",
+    description: "Long-lasting, exotic blooms in a compact elegant form.",
     image: "https://images.unsplash.com/photo-1567748157439-651aca2ff064?w=400&h=300&fit=crop",
   },
   {
@@ -60,6 +68,7 @@ export const plants = [
     name: "Aloe Vera",
     price: 14,
     category: "Low Light",
+    description: "A useful succulent with soothing, gel-filled leaves.",
     image: "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=400&h=300&fit=crop",
   },
 ];

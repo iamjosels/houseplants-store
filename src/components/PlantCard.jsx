@@ -29,14 +29,17 @@ export default function PlantCard({ plant }) {
       </div>
       <div className="plant-card-body">
         <h4>{plant.name}</h4>
-        <div className="plant-card-price">${plant.price.toFixed(2)}</div>
-        <div className="plant-card-actions">
+        {plant.description && (
+          <p className="plant-card-desc">{plant.description}</p>
+        )}
+        <div className="plant-card-footer">
+          <div className="plant-card-price">${plant.price.toFixed(2)}</div>
           <button
             className="btn-add-cart"
             onClick={handleAdd}
             disabled={isInCart}
           >
-            {isInCart ? "\u2713 Added to Cart" : "Add to Cart"}
+            {isInCart ? "\u2713 Added" : "Add to Cart"}
           </button>
         </div>
       </div>

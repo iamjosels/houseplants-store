@@ -15,23 +15,29 @@ export default function Products() {
       </div>
 
       <main className="products-main">
-        {categories.map((cat) => (
-          <section key={cat} className="category-section">
-            <h3 className="category-title">
-              <span className="category-icon">
-                {categoryIcons[cat] || "\u{1F33F}"}
-              </span>
-              {cat}
-            </h3>
-            <div className="products-grid">
-              {plants
-                .filter((p) => p.category === cat)
-                .map((p) => (
+        {categories.map((cat) => {
+          const catPlants = plants.filter((p) => p.category === cat);
+          return (
+            <section key={cat} className="category-section">
+              <div className="category-header">
+                <h3 className="category-title">
+                  <span className="category-icon">
+                    {categoryIcons[cat] || "\u{1F33F}"}
+                  </span>
+                  {cat}
+                </h3>
+                <span className="category-count">
+                  {catPlants.length} {catPlants.length === 1 ? "plant" : "plants"}
+                </span>
+              </div>
+              <div className="products-grid">
+                {catPlants.map((p) => (
                   <PlantCard key={p.id} plant={p} />
                 ))}
-            </div>
-          </section>
-        ))}
+              </div>
+            </section>
+          );
+        })}
       </main>
     </div>
   );

@@ -27,6 +27,11 @@ export default function Cart() {
 
       <div className="cart-hero">
         <h2>Your Cart</h2>
+        {items.length > 0 && (
+          <p>
+            {totalItems} {totalItems === 1 ? "item" : "items"} in your cart
+          </p>
+        )}
       </div>
 
       <main className="cart-main">
@@ -42,46 +47,51 @@ export default function Cart() {
               </Link>
             </div>
           ) : (
-            items.map((item) => (
-              <div key={item.id} className="cart-item">
-                <img
-                  className="cart-item-img"
-                  src={item.image}
-                  alt={item.name}
-                />
-                <div className="cart-item-info">
-                  <h4>{item.name}</h4>
-                  <div className="cart-item-price">
-                    ${item.price.toFixed(2)} / unit
-                  </div>
-                  <div className="cart-item-controls">
-                    <button
-                      className="qty-btn"
-                      onClick={() => dispatch(decrement(item.id))}
-                    >
-                      &minus;
-                    </button>
-                    <span className="qty-value">{item.quantity}</span>
-                    <button
-                      className="qty-btn"
-                      onClick={() => dispatch(increment(item.id))}
-                    >
-                      +
-                    </button>
-                    <span className="cart-item-subtotal">
-                      ${(item.price * item.quantity).toFixed(2)}
-                    </span>
-                    <button
-                      className="btn-remove"
-                      onClick={() => dispatch(removeItem(item.id))}
-                      title="Remove item"
-                    >
-                      &#10005; Remove
-                    </button>
+            <>
+              <div className="cart-items-header">
+                {items.length} {items.length === 1 ? "product" : "products"}
+              </div>
+              {items.map((item) => (
+                <div key={item.id} className="cart-item">
+                  <img
+                    className="cart-item-img"
+                    src={item.image}
+                    alt={item.name}
+                  />
+                  <div className="cart-item-info">
+                    <h4>{item.name}</h4>
+                    <div className="cart-item-price">
+                      ${item.price.toFixed(2)} / unit
+                    </div>
+                    <div className="cart-item-controls">
+                      <button
+                        className="qty-btn"
+                        onClick={() => dispatch(decrement(item.id))}
+                      >
+                        &minus;
+                      </button>
+                      <span className="qty-value">{item.quantity}</span>
+                      <button
+                        className="qty-btn"
+                        onClick={() => dispatch(increment(item.id))}
+                      >
+                        +
+                      </button>
+                      <span className="cart-item-subtotal">
+                        ${(item.price * item.quantity).toFixed(2)}
+                      </span>
+                      <button
+                        className="btn-remove"
+                        onClick={() => dispatch(removeItem(item.id))}
+                        title="Remove item"
+                      >
+                        &#10005; Remove
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
+              ))}
+            </>
           )}
         </div>
 
@@ -90,12 +100,12 @@ export default function Cart() {
           <h3>Order Summary</h3>
 
           <div className="summary-row">
-            <span>Items</span>
-            <strong>{totalItems}</strong>
+            <span>Subtotal ({totalItems} items)</span>
+            <strong>${totalCost.toFixed(2)}</strong>
           </div>
           <div className="summary-row">
             <span>Shipping</span>
-            <strong style={{ color: "#16a34a" }}>Free</strong>
+            <strong style={{ color: "var(--green-600)" }}>Free</strong>
           </div>
           <div className="summary-row summary-total">
             <span>Total</span>
@@ -111,8 +121,8 @@ export default function Cart() {
           </button>
 
           <div className="cart-summary-links">
-            <Link to="/products" className="btn btn-outline" style={{ width: "100%", justifyContent: "center" }}>
-              Continue Shopping
+            <Link to="/products" className="btn-continue">
+              &larr; Continue Shopping
             </Link>
 
             {items.length > 0 && (
@@ -123,6 +133,21 @@ export default function Cart() {
                 Clear Cart
               </button>
             )}
+          </div>
+
+          <div className="trust-badges">
+            <div className="trust-item">
+              <span className="trust-icon">&#128230;</span>
+              Free shipping on orders over $50
+            </div>
+            <div className="trust-item">
+              <span className="trust-icon">&#127793;</span>
+              30-day plant health guarantee
+            </div>
+            <div className="trust-item">
+              <span className="trust-icon">&#128274;</span>
+              Secure checkout
+            </div>
           </div>
         </aside>
       </main>
